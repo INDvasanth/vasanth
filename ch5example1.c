@@ -1,5 +1,5 @@
 /* Chapter-5 calculate the eighth triangular number
-* Vasanth [26 Aug 2014]
+* Vasanth [26 Aug 2014] */
 
 #include <stdio.h>
 
