@@ -1,0 +1,18 @@
+/* Chapter-5 calculate the eighth triangular number
+* Vasanth [26 Aug 2014]
+
+#include <stdio.h>
+
+int main(void)
+{
+	int triangularNumber;
+
+	triangularNumber=1+2+3+4+5+6+7+8;
+
+	printf("The eighth triangular number is %i\n", triangularNumber);
+
+	return 0;
+}
+
+Output:
+	The eighth triangular number is 36
