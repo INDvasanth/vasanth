@@ -1,0 +1,76 @@
+/* Chapter-9 Example-9.3 Program to determine tomorrow's date include Feb-Leab Year
+* Vasanth [15 September 2014] */
+
+#include <stdio.h>
+#include <stdbool.h>
+
+struct date
+{
+	int month;
+	int day;
+	int year;
+};
+
+int main(void)
+{
+	struct date today;
+	struct date tomorrow;
+	
+	int numberOfDays(struct date d);
+	
+	printf("Enter the day's Date (mm dd yy): ");
+	scanf("%i%i%i", &today.month, &today.day, &today.year);
+	
+	if (today.day != numberOfDays(today))
+	{
+		tomorrow.day = today.day + 1;
+		tomorrow.month = today.month;
+		tomorrow.year = today.year;
+	}
+	else if (today.month == 12) /* End of Year*/
+	{
+		tomorrow.day = 1;
+		tomorrow.month = 1;
+		tomorrow.year = today.year + 1;
+	}
+	else /* End of Month*/
+	{
+		tomorrow.day = 1;
+		tomorrow.month = today.month + 1;
+		tomorrow.year = today.year;
+	}
+	
+	printf("Tomorrow's Date is %i/%i/%.2i.\n", tomorrow.month, tomorrow.day, tomorrow.year % 100);
+	
+	return 0;
+}
+
+/* Function to find the number of day in month */
+
+int numberOfDays(struct date d)
+{
+	int days;
+	bool isLeapYear (struct date d);
+	
+	const int daysPerMonth[12] = {31, 28, 31, 30, 31, 30,
+								  31, 31, 30, 31, 30, 31};
+	if (isLeapYear(d) == true && d.month == 2)
+		days = 29;
+	else
+		days = daysPerMonth[d.month - 1];
+		
+	return days;	
+}
+
+/* Function to  determine if it's a leap year */
+bool isLeapYear(struct date d)
+{
+	bool leapYearFlag;
+	
+	if ((d.year % 4 == 0 && d.year % 100 != 0) || d.year % 400 == 0)
+		leapYearFlag = true; /* It is a Leap Year */
+	else
+		leapYearFlag = false; /* Not a leap Year */
+		
+	return leapYearFlag;	
+}
