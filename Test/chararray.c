@@ -12,9 +12,9 @@ int main(void)
 	
 	for(i = 0; i <= k; ++i)
 	{
-		b[i] = a[i];
+			b[i] = a[i];		
 	}
 	printf("%s", b);
-	
+		
 	return 0;
 }
